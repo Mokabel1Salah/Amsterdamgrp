@@ -1,0 +1,276 @@
+/* =========================
+   GLOBAL RESET
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: #0b0b0c;
+  color: #ffffff;
+  line-height: 1.6;
+}
+
+/* =========================
+   VARIABLES (DESIGN SYSTEM)
+========================= */
+:root {
+  --primary: #c8a96a;
+  --background: #0b0b0c;
+  --surface: #121214;
+  --border: #2a2a2e;
+  --text-muted: #b5b5b5;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+.navbar {
+  position: sticky;
+  top: 0;
+  background: rgba(11, 11, 12, 0.9);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  z-index: 1000;
+}
+
+.navbar-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.nav-links {
+  display: flex;
+  gap: 28px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--primary);
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+.hero {
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.hero p {
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: auto;
+}
+
+/* =========================
+   SECTIONS
+========================= */
+.section {
+  padding: 80px 0;
+}
+
+.section-title {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.section-subtitle {
+  color: var(--text-muted);
+  margin-bottom: 40px;
+}
+
+/* =========================
+   GRID SYSTEM
+========================= */
+.grid {
+  display: grid;
+  gap: 30px;
+}
+
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* =========================
+   CARDS
+========================= */
+.card {
+  background: var(--surface);
+  padding: 20px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary);
+}
+
+/* =========================
+   BUTTONS
+========================= */
+.btn {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 10px;
+  background: var(--primary);
+  color: #000;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  opacity: 0.85;
+}
+
+/* =========================
+   CONTACT SECTION (FIXED)
+========================= */
+.contact-new {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 50px;
+  align-items: flex-start;
+}
+
+/* LEFT SIDE */
+.contact-left h2 {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.contact-left p {
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+/* RIGHT SIDE (FIXED) */
+.contact-right {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 420px;
+  width: 100%;
+  justify-self: end;
+
+  background: var(--surface);
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+}
+
+/* IMAGE FIX */
+.contact-right img {
+  width: 100%;
+  height: 200px;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+}
+
+/* MAP FIX (stacked under image) */
+.contact-right .map-wrap {
+  margin-top: 0;
+  height: 230px;
+  min-height: unset;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.contact-right iframe {
+  width: 100%;
+  height: 100%;
+  min-height: unset;
+  border-radius: 0;
+  border: 0;
+}
+
+/* =========================
+   FOOTER
+========================= */
+.footer {
+  padding: 40px 0;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  color: var(--text-muted);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 992px) {
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact-new {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-right {
+    max-width: 100%;
+    justify-self: start;
+  }
+}
+
+@media (max-width: 600px) {
+  .grid-2,
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+}
+/* NOTE: keep only ONE contact-new definition to avoid conflicts */
