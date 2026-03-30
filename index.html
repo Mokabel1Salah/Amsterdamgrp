@@ -1,0 +1,1436 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amsterdam Group | Design, Technology &amp; Implementation UAE</title>
+  <meta name="description" content="Amsterdam Group is a multi-sector company in UAE offering interior design, architecture, and advanced IT &amp; information systems solutions.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Amsterdam Group | Design, Technology &amp; Implementation UAE">
+  <meta property="og:description" content="Amsterdam Group is a multi-sector company in UAE offering interior design, architecture, and advanced IT &amp; information systems solutions.">
+  <meta property="og:url" content="https://amsterdamgrp.com/">
+  <meta property="og:image" content="images/hero.png">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Amsterdam Group",
+    "url": "https://amsterdamgrp.com/",
+    "email": "Info@amsterdamgrp.com",
+    "telephone": ["+971566503617", "+31617209097"],
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "09:00",
+        "closes": "19:00"
+      }
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Al Moosa Tower 1, Sheikh Zayed Road",
+      "addressLocality": "Dubai",
+      "addressCountry": "AE"
+    }
+  }
+  </script>
+  <style>
+    :root {
+      --bg: #0a0a0b;
+      --bg-elevated: #121214;
+      --surface: #18181b;
+      --text: #f4f4f5;
+      --muted: #a1a1aa;
+      --muted-soft: #71717a;
+      --accent: #c9a66b;
+      --accent-soft: rgba(201, 166, 107, 0.14);
+      --border: rgba(255, 255, 255, 0.08);
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
+      --shadow-md: 0 12px 40px rgba(0, 0, 0, 0.45);
+      --shadow-lg: 0 24px 80px rgba(0, 0, 0, 0.55);
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --transition: 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      background-image:
+        radial-gradient(ellipse 120% 80% at 50% -20%, rgba(201, 166, 107, 0.07), transparent 50%),
+        radial-gradient(ellipse 80% 50% at 100% 50%, rgba(255, 255, 255, 0.02), transparent 45%);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 1rem;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3 {
+      font-family: "Poppins", "Inter", sans-serif;
+      line-height: 1.15;
+      letter-spacing: 0.02em;
+      font-weight: 600;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1140px, 90%);
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 108px 0;
+    }
+
+    .section-alt {
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.015), transparent 36%),
+        var(--bg-elevated);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    h2 {
+      font-size: clamp(1.85rem, 3.2vw, 2.65rem);
+      margin-bottom: 28px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    p {
+      color: var(--muted);
+    }
+
+    .section-lead {
+      max-width: 72ch;
+      margin-top: -12px;
+      margin-bottom: 8px;
+      font-size: 1.06rem;
+      line-height: 1.7;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s var(--transition), transform 0.7s var(--transition);
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(16px) saturate(1.2);
+      -webkit-backdrop-filter: blur(16px) saturate(1.2);
+      background: rgba(10, 10, 11, 0.72);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+    }
+
+    .navbar.scrolled {
+      background: rgba(8, 8, 9, 0.94);
+      box-shadow: var(--shadow-md);
+      border-bottom-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .nav-inner {
+      min-height: 84px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 28px;
+      padding: 6px 0;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      flex-shrink: 0;
+      line-height: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .logo img {
+      width: auto;
+      max-width: 100%;
+      max-height: 70px;
+      height: auto;
+      display: block;
+      object-fit: contain;
+    }
+
+    .logo:hover {
+      opacity: 0.88;
+    }
+
+    .work-media picture {
+      display: contents;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: clamp(16px, 2.2vw, 28px);
+      list-style: none;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      position: relative;
+      padding: 6px 0;
+      transition: color 0.28s ease;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      transition: width 0.35s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .hamburger {
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text);
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: none;
+      place-items: center;
+      cursor: pointer;
+      transition: background 0.25s ease, border-color 0.25s ease;
+    }
+
+    .hamburger:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(201, 166, 107, 0.35);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 140px 0 100px;
+      background: url("images/hero.png") center/cover no-repeat;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8));
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: min(920px, 92vw);
+      margin: 0 auto;
+    }
+
+    .hero-logo {
+      width: 300px;
+      margin: 0 auto 20px;
+      display: block;
+    }
+
+    .hero-social {
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 3;
+    }
+
+    .hero-social a {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 18px;
+      line-height: 1;
+      transition: background 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .hero-social svg {
+      width: 18px;
+      height: 18px;
+      display: block;
+    }
+
+    .hero-social a:hover {
+      background: rgba(201, 166, 107, 0.35);
+      border-color: rgba(201, 166, 107, 0.5);
+      transform: scale(1.06);
+    }
+
+    .hero h1 {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: #fafafa;
+      text-shadow: 0 2px 40px rgba(0, 0, 0, 0.45);
+    }
+
+    .hero .subtitle {
+      font-size: clamp(1.05rem, 1.9vw, 1.3rem);
+      margin: 0 auto 36px;
+      color: #d4d4d8;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      max-width: 42ch;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px 32px;
+      border-radius: 999px;
+      font-family: "Inter", sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.03em;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+      border: 1px solid transparent;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #d4b47a 0%, #c9a66b 45%, #b8924f 100%);
+      color: #141414;
+      box-shadow: 0 8px 32px rgba(201, 166, 107, 0.35), var(--shadow-sm);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 48px rgba(201, 166, 107, 0.45);
+    }
+
+    .about p {
+      max-width: 720px;
+      font-size: 1.08rem;
+      line-height: 1.75;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .about-text {
+      width: 100%;
+    }
+
+    .about-slider {
+      position: relative;
+      height: 350px;
+      overflow: hidden;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .about-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 0.8s ease;
+    }
+
+    .about-img.active {
+      opacity: 1;
+    }
+
+    .project-slider {
+      position: relative;
+      height: 300px;
+      overflow: hidden;
+      background: var(--surface);
+    }
+
+    .project-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+      aspect-ratio: auto;
+    }
+
+    .project-img.active {
+      opacity: 1;
+    }
+
+    .contact-modern {
+      display: grid;
+      gap: 30px;
+      text-align: center;
+    }
+
+    .contact-text p {
+      margin: 0 auto;
+      max-width: 72ch;
+    }
+
+    .contact-image {
+      display: grid;
+      gap: 16px;
+      justify-items: center;
+    }
+
+    .contact-image img {
+      border-radius: 16px;
+      border: 1px solid var(--border);
+    }
+
+    .contact-image .map-wrap {
+      border-radius: 16px;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .contact-info p {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    /* =========================
+       CONTACT NEW (GRID FIX)
+    ========================= */
+    .contact-new {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 50px;
+      align-items: start;
+    }
+
+    .contact-right {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-width: 420px;
+      width: 100%;
+      justify-self: end;
+    }
+
+    .contact-right img {
+      width: 100%;
+      height: 200px;
+      max-height: 200px;
+      object-fit: cover;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+    }
+
+    .contact-right .map-wrap {
+      margin-top: 0;
+      min-height: unset;
+      height: 230px;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .contact-right .map-wrap iframe {
+      width: 100%;
+      height: 100%;
+      min-height: unset;
+      display: block;
+    }
+
+    .companies-grid {
+      margin-top: 40px;
+      display: grid;
+      gap: 22px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .company-block {
+      background: linear-gradient(180deg, var(--bg-elevated) 0%, var(--surface) 100%);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+    }
+
+    .company-block:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(201, 166, 107, 0.22);
+    }
+
+    .company-block-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      margin-bottom: 16px;
+    }
+
+    .company-icon {
+      flex-shrink: 0;
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: rgba(201, 166, 107, 0.12);
+      border: 1px solid rgba(201, 166, 107, 0.22);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      line-height: 1;
+    }
+
+    .company-block h3 {
+      font-size: 1.25rem;
+      margin-bottom: 8px;
+      color: #fafafa;
+    }
+
+    .company-tags {
+      list-style: none;
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .company-tags li {
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent);
+      padding: 6px 12px;
+      border: 1px solid rgba(201, 166, 107, 0.25);
+      border-radius: 999px;
+    }
+
+    .services-split {
+      margin-top: 48px;
+      display: grid;
+      gap: 36px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .service-category > h3 {
+      font-size: 1.15rem;
+      margin-bottom: 18px;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 14px;
+    }
+
+    .service-category-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .feature-grid,
+    .testimonials-grid {
+      margin-top: 40px;
+      display: grid;
+      gap: 22px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .feature-card,
+    .service-card,
+    .testimonial-card {
+      background: linear-gradient(180deg, var(--bg-elevated) 0%, var(--surface) 100%);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 28px 24px;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+    }
+
+    .feature-card:hover,
+    .service-card:hover,
+    .testimonial-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(201, 166, 107, 0.2);
+    }
+
+    .feature-card h3,
+    .service-card h3,
+    .service-card h4,
+    .testimonial-card h3 {
+      font-family: "Poppins", "Inter", sans-serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #f7f7f8;
+      letter-spacing: 0.02em;
+    }
+
+    .feature-card p,
+    .service-card p,
+    .testimonial-card p {
+      font-size: 0.97rem;
+      color: var(--muted);
+    }
+
+    .testimonial-card p {
+      font-style: italic;
+      line-height: 1.75;
+    }
+
+    .works-grid {
+      margin-top: 40px;
+      display: grid;
+      gap: 24px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .work-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.45s var(--transition), box-shadow 0.45s ease, border-color 0.35s ease;
+    }
+
+    .work-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(201, 166, 107, 0.22);
+    }
+
+    .work-media {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4 / 3;
+      background: var(--surface);
+    }
+
+    .work-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.65s var(--transition), filter 0.45s ease;
+    }
+
+    .work-card:hover .work-media img {
+      transform: scale(1.08);
+      filter: brightness(1.08) contrast(1.04);
+    }
+
+    .work-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      display: flex;
+      align-items: flex-end;
+      padding: 22px;
+      background: linear-gradient(to top, rgba(8, 8, 10, 0.92) 0%, rgba(8, 8, 10, 0.2) 55%, transparent 100%);
+      opacity: 0;
+      transition: opacity 0.45s ease;
+    }
+
+    .work-card:hover .work-overlay {
+      opacity: 1;
+    }
+
+    .work-overlay p {
+      color: #f4f4f5;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      font-weight: 500;
+    }
+
+    .work-content {
+      padding: 22px 22px 24px;
+      border-top: 1px solid var(--border);
+      background: linear-gradient(180deg, var(--bg-elevated) 0%, var(--surface) 100%);
+    }
+
+    .work-content p {
+      font-size: 0.98rem;
+    }
+
+    .project-meta {
+      margin-top: 12px;
+      font-size: 0.83rem;
+      color: var(--muted-soft);
+      letter-spacing: 0.03em;
+    }
+
+    .quote {
+      text-align: center;
+      background: linear-gradient(180deg, var(--bg-elevated) 0%, var(--bg) 100%);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 96px 0;
+      position: relative;
+    }
+
+    .quote::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: min(640px, 85%);
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(201, 166, 107, 0.25), transparent);
+      pointer-events: none;
+    }
+
+    .quote p {
+      color: var(--text);
+      font-family: "Poppins", sans-serif;
+      font-size: clamp(1.25rem, 2.4vw, 2.15rem);
+      font-weight: 500;
+      max-width: 880px;
+      margin: 0 auto;
+      line-height: 1.45;
+      letter-spacing: 0.02em;
+    }
+
+    .contact-grid {
+      display: grid;
+      gap: 22px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .contact-item.contact-span {
+      grid-column: 1 / -1;
+    }
+
+    .map-wrap {
+      margin-top: 30px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-md);
+      min-height: 340px;
+    }
+
+    .map-wrap iframe {
+      width: 100%;
+      min-height: 340px;
+      border: 0;
+      display: block;
+      filter: saturate(0.85) contrast(1.05) brightness(0.9);
+    }
+
+    .contact-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 26px 24px;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+    }
+
+    .contact-item:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(201, 166, 107, 0.18);
+    }
+
+    .contact-item h3 {
+      margin-bottom: 12px;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .contact-item a {
+      color: var(--text);
+      border-bottom: 1px solid transparent;
+      transition: color 0.25s ease, border-color 0.25s ease;
+    }
+
+    .contact-item a:hover {
+      color: var(--accent);
+      border-bottom-color: rgba(201, 166, 107, 0.5);
+    }
+
+    .contact-form {
+      margin-top: 26px;
+      background: linear-gradient(180deg, var(--bg-elevated) 0%, var(--surface) 100%);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 26px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .contact-form h3 {
+      margin-bottom: 14px;
+      font-size: 1.1rem;
+      color: #f7f7f8;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .contact-form label {
+      display: block;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      color: var(--text);
+      font: inherit;
+      padding: 12px 14px;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: rgba(201, 166, 107, 0.55);
+      box-shadow: 0 0 0 3px rgba(201, 166, 107, 0.15);
+    }
+
+    .contact-form .full {
+      grid-column: 1 / -1;
+    }
+
+    .form-hidden-field {
+      display: none;
+    }
+
+    .cta {
+      text-align: center;
+      background:
+        radial-gradient(ellipse 80% 120% at 50% 120%, rgba(201, 166, 107, 0.12), transparent 55%),
+        linear-gradient(180deg, #0f0f11 0%, #0a0a0b 100%);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 120px 0;
+    }
+
+    .cta h2 {
+      margin-bottom: 40px;
+      text-transform: none;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: #fafafa;
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(8px);
+      padding: 16px 34px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-soft);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(201, 166, 107, 0.15);
+    }
+
+    footer {
+      padding: 56px 0 48px;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-grid {
+      display: grid;
+      gap: 28px;
+      grid-template-columns: 2fr 1fr;
+      align-items: start;
+    }
+
+    .footer-grid > div:first-child p {
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    .footer-grid strong {
+      color: #e4e4e7;
+      font-weight: 600;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--muted);
+      padding: 8px 0;
+      border-bottom: 1px solid transparent;
+      transition: color 0.25s ease, border-color 0.25s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+      border-bottom-color: rgba(201, 166, 107, 0.4);
+    }
+
+    .copyright {
+      margin-top: 36px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border);
+      color: var(--muted-soft);
+      font-size: 0.88rem;
+      letter-spacing: 0.02em;
+    }
+
+    @media (max-width: 900px) {
+      .feature-grid,
+      .companies-grid,
+      .services-split,
+      .testimonials-grid,
+      .works-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-links {
+        justify-content: flex-start;
+      }
+
+      .contact-new {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-right {
+        max-width: 100%;
+        justify-self: start;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .hamburger {
+        display: grid;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 84px;
+        left: 0;
+        right: 0;
+        background: rgba(12, 12, 14, 0.97);
+        backdrop-filter: blur(16px);
+        border-bottom: 1px solid var(--border);
+        padding: 20px 5%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        display: none;
+        box-shadow: var(--shadow-md);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .hero {
+        padding: 120px 0 72px;
+        min-height: 78vh;
+      }
+
+      .hero-social {
+        left: 12px;
+        gap: 10px;
+      }
+
+      .hero-social a {
+        width: 38px;
+        height: 38px;
+        font-size: 16px;
+      }
+
+      .section {
+        padding: 78px 0;
+      }
+
+      .cta {
+        padding: 88px 0;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-form {
+        padding: 20px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-slider {
+        height: 280px;
+      }
+
+      .project-slider {
+        height: 260px;
+      }
+
+      .contact-modern {
+        gap: 22px;
+      }
+
+      .contact-image {
+        gap: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar" id="siteNav">
+    <nav class="container nav-inner" aria-label="Main navigation">
+      <a class="logo" href="#hero">
+        <img src="images/logo.png" alt="Amsterdam Group Logo">
+      </a>
+      <button class="hamburger" id="menuToggle" aria-expanded="false" aria-controls="mainMenu" aria-label="Toggle menu">☰</button>
+      <ul class="nav-links" id="mainMenu">
+        <li><a href="#about">About</a></li>
+        <li><a href="#companies">Companies</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero reveal" id="hero">
+      <div class="hero-social" aria-label="Quick contact">
+        <a href="tel:+971566503617" aria-label="Phone">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.08 3.18 2 2 0 0 1 5.06 1h3a2 2 0 0 1 2 1.72c.12.81.35 1.59.68 2.34a2 2 0 0 1-.45 2.11L9.09 8.91a16 16 0 0 0 6 6l1.74-1.2a2 2 0 0 1 2.11-.45c.75.33 1.53.56 2.34.68A2 2 0 0 1 22 16.92z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="https://wa.me/971566503617" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20.5 11.7c0 4.8-3.9 8.7-8.7 8.7-1.5 0-2.9-.4-4.1-1.1L2 21l1.7-5.6c-.7-1.2-1.1-2.6-1.1-4.2C2.6 6.4 6.5 2.5 11.3 2.5c4.8 0 9.2 3.6 9.2 9.2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8.9 9.1c.5 2 2.4 3.9 4.4 4.4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M11.2 7.8c.2 0 .5.1.7.3l1.1 1.1c.2.2.3.4.3.7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="https://instagram.com/amsterdam_uae" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="2.5" y="2.5" width="19" height="19" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 16.5a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M17.8 6.3h.01" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </a>
+      </div>
+      <div class="container hero-content">
+        <img src="images/logo1.png" class="hero-logo" alt="Amsterdam Group Logo" loading="lazy">
+        <h1>AMSTERDAM GROUP</h1>
+        <p class="subtitle">From the Netherlands to Dubai — design &amp; technology under one roof.</p>
+        <a href="#contact" class="btn btn-primary">Book Your Consultation</a>
+      </div>
+    </section>
+
+    <section class="section about reveal" id="about">
+      <div class="container about-grid">
+        <div class="about-text">
+          <h2>About Us</h2>
+          <p>Amsterdam Group is a multi-sector corporate platform anchored in the UAE with European roots. We unite premium design, architecture, and implementation with advanced technology and information systems—delivering disciplined execution, long-term value, and a single point of accountability for complex projects across the region.</p>
+        </div>
+        <div class="about-slider" aria-label="About images">
+          <img src="images/about1.jpg" class="about-img active" alt="Amsterdam Group about image 1" loading="lazy">
+          <img src="images/about2.jpg" class="about-img" alt="Amsterdam Group about image 2" loading="lazy">
+          <img src="images/about3.jpg" class="about-img" alt="Amsterdam Group about image 3" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt reveal" id="companies">
+      <div class="container">
+        <h2>Our Companies</h2>
+        <div class="companies-grid">
+          <article class="company-block">
+            <div class="company-block-header">
+              <div class="company-icon" aria-hidden="true">◇</div>
+              <div>
+                <h3>Amsterdam Decoration</h3>
+                <p>The design and build arm of the group—crafting elevated interiors and architecture with Dutch precision and on-site excellence.</p>
+              </div>
+            </div>
+            <ul class="company-tags">
+              <li>Interior Design</li>
+              <li>Architecture</li>
+              <li>Implementation</li>
+            </ul>
+          </article>
+          <article class="company-block">
+            <div class="company-block-header">
+              <div class="company-icon" aria-hidden="true">◆</div>
+              <div>
+                <h3>Amsterdam Tech</h3>
+                <p>Technology and information systems for modern enterprises—secure infrastructure, integrated platforms, and resilient operations.</p>
+              </div>
+            </div>
+            <ul class="company-tags">
+              <li>IT Infrastructure</li>
+              <li>Information Systems</li>
+              <li>Networking &amp; Security</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="why-choose-us">
+      <div class="container">
+        <h2>Why Choose Us</h2>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <h3>Integrated Design &amp; Technology Strategy</h3>
+            <p>We align Interior Design Dubai planning with IT systems and infrastructure—so digital + physical spaces work together from concept to implementation.</p>
+          </article>
+          <article class="feature-card">
+            <h3>European Precision, UAE Execution</h3>
+            <p>Our infrastructure-aware process ensures architecture, interiors, and information systems are planned together for stable performance, security, and operational clarity.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Connected Delivery &amp; Systems Handover</h3>
+            <p>We deliver with transparent project management—connecting networks, information systems, and on-site execution for a premium, end-to-end handover.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section works reveal" id="projects">
+      <div class="container">
+        <h2>Projects</h2>
+        <div class="works-grid">
+          <article class="work-card">
+            <div class="project-slider">
+              <img src="images/p1-1.jpg" class="project-img active" alt="Minimalist and modern interior project image 1" loading="lazy">
+              <img src="images/p1-2.jpg" class="project-img" alt="Minimalist and modern interior project image 2" loading="lazy">
+              <img src="images/p1-3.jpg" class="project-img" alt="Minimalist and modern interior project image 3" loading="lazy">
+              <img src="images/p1-4.jpg" class="project-img" alt="Minimalist and modern interior project image 4" loading="lazy">
+              <img src="images/p1-5.jpg" class="project-img" alt="Minimalist and modern interior project image 5" loading="lazy">
+              <img src="images/p1-6.jpg" class="project-img" alt="Minimalist and modern interior project image 6" loading="lazy">
+            </div>
+          </article>
+          <article class="work-card">
+            <div class="project-slider">
+              <img src="images/p2-1.jpg" class="project-img active" alt="Three-bedroom condo interior project image 1" loading="lazy">
+              <img src="images/p2-2.jpg" class="project-img" alt="Three-bedroom condo interior project image 2" loading="lazy">
+              <img src="images/p2-3.jpg" class="project-img" alt="Three-bedroom condo interior project image 3" loading="lazy">
+              <img src="images/p2-4.jpg" class="project-img" alt="Three-bedroom condo interior project image 4" loading="lazy">
+              <img src="images/p2-5.jpg" class="project-img" alt="Three-bedroom condo interior project image 5" loading="lazy">
+              <img src="images/p2-6.jpg" class="project-img" alt="Three-bedroom condo interior project image 6" loading="lazy">
+            </div>
+          </article>
+          <article class="work-card">
+            <div class="project-slider">
+              <img src="images/p3-1.jpg" class="project-img active" alt="Contemporary interior project with dark accents image 1" loading="lazy">
+              <img src="images/p3-2.jpg" class="project-img" alt="Contemporary interior project with dark accents image 2" loading="lazy">
+              <img src="images/p3-3.jpg" class="project-img" alt="Contemporary interior project with dark accents image 3" loading="lazy">
+              <img src="images/p3-4.jpg" class="project-img" alt="Contemporary interior project with dark accents image 4" loading="lazy">
+              <img src="images/p3-5.jpg" class="project-img" alt="Contemporary interior project with dark accents image 5" loading="lazy">
+              <img src="images/p3-6.jpg" class="project-img" alt="Contemporary interior project with dark accents image 6" loading="lazy">
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt reveal" id="services">
+      <div class="container">
+        <h2>Services</h2>
+        <p class="section-lead">End-to-end capabilities across the built environment and digital backbone—structured for clarity, scale, and measurable outcomes.</p>
+        <div class="services-split">
+          <div class="service-category">
+            <h3>A) Design &amp; Build</h3>
+            <div class="service-category-grid">
+              <article class="service-card">
+                <h4>Interior Design &amp; Styling</h4>
+                <p>Concept development, bespoke FF&amp;E direction, and material palettes tailored to residential, hospitality, and corporate programmes.</p>
+              </article>
+              <article class="service-card">
+                <h4>Architecture &amp; Space Planning</h4>
+                <p>Functional layouts, façade and massing coordination, and documentation aligned with authority requirements and project budgets.</p>
+              </article>
+              <article class="service-card">
+                <h4>Turnkey Implementation</h4>
+                <p>Site coordination, contractor alignment, quality inspections, and handover—one accountable delivery model from drawings to completion.</p>
+              </article>
+            </div>
+          </div>
+          <div class="service-category">
+            <h3>B) Technology &amp; IT</h3>
+            <div class="service-category-grid">
+              <article class="service-card">
+                <h4>IT Infrastructure &amp; Cloud</h4>
+                <p>Servers, storage, hybrid cloud readiness, and resilient infrastructure foundations that support growth and uptime.</p>
+              </article>
+              <article class="service-card">
+                <h4>Business Information Systems</h4>
+                <p>ERP, CRM integration paths, workflow automation, and data architecture that connects operations to decision-making.</p>
+              </article>
+              <article class="service-card">
+                <h4>Networking &amp; Cybersecurity</h4>
+                <p>Structured cabling, secure WAN/LAN design, access control, monitoring, and hardening aligned to enterprise standards.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="quote reveal" aria-label="Statement">
+      <div class="container">
+        <p>we enjoy the challenge of transforming a space into something fresh and engaging. - Eng. Ghaith</p>
+      </div>
+    </section>
+
+    <section class="section reveal" id="contact">
+      <div class="container">
+        <div class="contact-new">
+    
+          <!-- LEFT SIDE -->
+          <div class="contact-left">
+            <h2>Let’s work together</h2>
+            <p class="contact-desc">
+              We design, build, and deliver integrated solutions across design and technology.
+            </p>
+    
+            <div class="contact-details">
+              <p>📍 Dubai – Al Moosa Tower 1</p>
+              <p>📍 Sharjah – Al Mamzar</p>
+              <p>📍 Netherlands – Tilburg</p>
+    
+              <p class="contact-line">📞 +971 56 650 3617</p>
+              <p class="contact-line">✉ Info@amsterdamgrp.com</p>
+            </div>
+    
+            <div class="contact-actions">
+              <a href="mailto:Info@amsterdamgrp.com" class="btn btn-primary">Start a Project</a>
+              <a href="tel:+971566503617" class="btn btn-outline">Call Us</a>
+            </div>
+          </div>
+    
+          <!-- RIGHT SIDE -->
+          <div class="contact-right">
+            <img src="images/contact.jpg" alt="Contact Image" loading="lazy">
+    
+            <div class="map-wrap">
+              <iframe
+                loading="lazy"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7213.432115274365!2d55.35632958022787!3d25.31374221997232!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5b851cdbf9a1%3A0xde924dcb5522ed2f!2zVGFiYXJhayBUb3dlciDYqNix2Kwg2KrYqNin2LHZgw!5e0!3m2!1sde!2sus!4v1774855212570!5m2!1sde!2sus">
+              </iframe>
+            </div>
+          </div>
+    
+        </div>
+      </div>
+    </section>
+
+    <section class="section cta reveal" aria-label="Let's work together">
+      <div class="container">
+        <h2>Partner with Amsterdam Group</h2>
+        <div class="cta-buttons">
+          <a class="btn btn-outline" href="mailto:Info@amsterdamgrp.com">Get a Free Consultation</a>
+          <a class="btn btn-outline" href="tel:+971566503617">Speak to Our Team</a>
+          <a class="btn btn-outline" href="https://instagram.com/amsterdam_uae" target="_blank" rel="noopener noreferrer">Instagram</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="reveal">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <p><strong>Email:</strong> <a href="mailto:Info@amsterdamgrp.com">Info@amsterdamgrp.com</a></p>
+          <p><strong>Phone:</strong> UAE <a href="tel:+971566503617">+971 56 650 3617</a> | NL <a href="tel:+31617209097">+31 61 720 9097</a></p>
+          <p><strong>UAE:</strong> Al Moosa Tower 1, Sheikh Zayed Road, Dubai · Tabark Tower, Al Mamzar, Sharjah</p>
+          <p><strong>Netherlands:</strong> Tilburg, Baflostraat 11, 5043 BJ</p>
+        </div>
+        <div class="footer-links">
+          <a href="mailto:Info@amsterdamgrp.com">Email</a>
+          <a href="tel:+971566503617">Phone</a>
+          <a href="https://wa.me/971566503617" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+          <a href="https://instagram.com/amsterdam_uae" target="_blank" rel="noopener noreferrer">Instagram</a>
+        </div>
+      </div>
+      <p class="copyright">&copy; 2026 Amsterdam Group. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const mainMenu = document.getElementById('mainMenu');
+    const siteNav = document.getElementById('siteNav');
+
+    menuToggle.addEventListener('click', () => {
+      const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+      menuToggle.setAttribute('aria-expanded', String(!expanded));
+      mainMenu.classList.toggle('active');
+    });
+
+    mainMenu.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        mainMenu.classList.remove('active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    const onScrollNav = () => {
+      if (window.scrollY > 24) {
+        siteNav.classList.add('scrolled');
+      } else {
+        siteNav.classList.remove('scrolled');
+      }
+    };
+    window.addEventListener('scroll', onScrollNav, { passive: true });
+    onScrollNav();
+
+    const revealEls = document.querySelectorAll('.reveal');
+    revealEls.forEach((el, index) => {
+      el.style.transitionDelay = `${Math.min(index * 80, 380)}ms`;
+    });
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          }
+        });
+      },
+      { root: null, rootMargin: '0px 0px -8% 0px', threshold: 0.08 }
+    );
+    revealEls.forEach((el) => revealObserver.observe(el));
+
+    // About slider (auto-rotate)
+    const aboutImages = document.querySelectorAll(".about-img");
+    if (aboutImages.length) {
+      let aboutIndex = 0;
+      setInterval(() => {
+        aboutImages[aboutIndex].classList.remove("active");
+        aboutIndex = (aboutIndex + 1) % aboutImages.length;
+        aboutImages[aboutIndex].classList.add("active");
+      }, 2000);
+    }
+
+    // Projects sliders (image-only)
+    document.querySelectorAll(".project-slider").forEach((slider) => {
+      let i = 0;
+      const imgs = slider.querySelectorAll(".project-img");
+      if (imgs.length < 2) return;
+      setInterval(() => {
+        imgs[i].classList.remove("active");
+        i = (i + 1) % imgs.length;
+        imgs[i].classList.add("active");
+      }, 2000);
+    });
+  </script>
+</body>
+</html>
